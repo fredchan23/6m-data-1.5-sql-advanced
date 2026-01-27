@@ -67,7 +67,9 @@ You can use the `SUMMARIZE` command to launch a query that computes a number of 
 SUMMARIZE address;
 ```
 
-**Exercise:** Summarize the other 3 tables. Study their min, max, approx_unique, avg and std (if applicable).
+**Exercise 1:** 
+
+Summarize the other 3 tables. Study their min, max, approx_unique, avg and std (if applicable).
 
 #### Joins and Unions
 
@@ -218,7 +220,7 @@ FROM contractors;
 
 **Questions:** "If I SUMMARIZE the claim table and see a max(claim_amt) that is 10x higher than the average, what does that tell you about our insurance risk?"
 
-**Exercise:**
+**Exercise 2:**
 
 Create a master report of every claim. Include the client's name, their car type, and the city they live in.  
 Hint: You will need to join 4 tables.  
@@ -393,16 +395,22 @@ FROM claim
 QUALIFY rank = 1; -- DuckDB specific 'QUALIFY' to filter windows  
 ```
 
-Hands-on Exercise 2:  
+**Exercise 3:**  
+
 Calculate a running total of insurance payouts over time (ordered by claim_date).  
 
+<details>
+
+  <summary>Solution for Running Total</summary>
+  
 ```sql
--- Solution for Running Total  
 SELECT   
     claim_date, claim_amt,  
     SUM(claim_amt) OVER (ORDER BY claim_date) AS running_total  
 FROM claim;  
 ```
+</details>
+
 
 ## **Part 3: Nested Logic (Subqueries & CTEs)**
 
@@ -519,7 +527,7 @@ JOIN AvgValues a ON c.car_type = a.car_type
 WHERE c.resale_value < a.avg_resale;
 ```
 
-**Exercise:**  
+**Exercise 4:**  
 Find clients who have made claims that are more than 50% of their annual income. Use a CTE to calculate the total claims per client first.
 
 ### **Q\&A / Reflection**
