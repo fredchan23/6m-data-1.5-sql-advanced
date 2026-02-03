@@ -2,3 +2,11 @@ solutions/
 *.wal
 *.csv
 .DS_Store
+db/data/address.csv:Zone.Identifier
+db/data/car.csv:Zone.Identifier
+db/data/claim.csv:Zone.Identifier
+db/data/client.csv:Zone.Identifier
+db/data/__MACOSX/._address.csv:Zone.Identifier
+db/data/__MACOSX/._car.csv:Zone.Identifier
+db/data/__MACOSX/._claim.csv:Zone.Identifier
+db/data/__MACOSX/._client.csv:Zone.Identifier
